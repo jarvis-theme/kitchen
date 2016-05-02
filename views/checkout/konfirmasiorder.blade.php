@@ -10,7 +10,6 @@
                         <th><span>Tanggal Order</span></th>
                         <th><span>Detail Order</span></th>
                         <th><span>Jumlah</span></th>
-                        <th><span>Jumlah yg belum dibayar</span></th>
                         <th><span>No. Resi</span></th>
                         <th><span>Status</span></th>
                     </tr>
@@ -27,9 +26,6 @@
                             </ul>
                         </td>
                         <td class="quantity">{{ price($order->total) }}</td>
-                        <td class="quantity">
-                            {{($order->status==2 || $order->status==3) ? price(0) : ' - '.price($order->total)}}
-                        </td>
                         <td class="sub-price">{{ $order->noResi }}</td>
                         <td class="total-price">
                             @if($order->status==0)
@@ -51,7 +47,7 @@
         <div class="row">
             <div class="col-md-5">
             @if($order->jenisPembayaran == 1 && $order->status == 0)
-                <h2>Konfirmasi Pembayaran</h2>
+                <h2><strong>Konfirmasi Pembayaran</strong></h2>
                 {{Form::open(array('url'=> 'konfirmasiorder/'.$order->id, 'method'=>'put'))}}
                     <div class="form-group">
                         <label  class="control-label"> Nama Pengirim:</label>
@@ -81,7 +77,7 @@
         </div>
 
         @if($paymentinfo!=null)
-        <h3><center>Paypal Payment Details</center></h3><br>
+        <h3><center><strong>Paypal Payment Details</strong></center></h3><br>
         <hr>
         <div class="table-responsive">
             <table class='table table-bordered'>
@@ -113,21 +109,50 @@
         @endif 
       
         @if($order->jenisPembayaran==2)
-        <br>
-        <h3><center>Konfirmasi Pembayaran Via Paypal</center></h3>
-        <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
-        {{$paypalbutton}}
-        <br>
-        @elseif($order->jenisPembayaran==6)
-            @if($order->status == 0)
-            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
-            <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
-            {{$bitcoinbutton}}
             <br>
-            @else
-            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
-            <p><center><b>Batas waktu pembayaran bicoin anda telah habis.</b></center></p>
-            @endif
+            <div class="well">
+                <center>
+                    <h3><strong>Konfirmasi Pembayaran Via Paypal</strong></h3>
+                    <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
+                    {{$paypalbutton}}
+                    <br>
+                </center>
+            </div>
+        @elseif($order->jenisPembayaran==5 && $order->status == 0)
+            <hr>
+            <div class="well">
+                <center>
+                    <h3><strong>Konfirmasi Pembayaran DOKU MyShortCart</strong></h3>
+                    <p>{{trans('content.step5.doku')}}</p><br>
+                    <button class="btn btn-danger" onclick="location.href='{{ doku_button }}'">{{trans('content.step5.doku_btn')}}</button>
+                </center>
+            </div>
+        @elseif($order->jenisPembayaran==6)
+            <hr>
+            <div class="well">
+                @if($order->status == 0)
+                    <center>
+                        <h3><strong>Konfirmasi Pembayaran Via Bitcoin</strong></h3><br>
+                        <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+                        {{$bitcoinbutton}}
+                        <br>
+                    </center>
+                @else
+                    <center>
+                        <h3><strong>Konfirmasi Pembayaran Via Bitcoin</strong></h3><br>
+                        <p><b>Batas waktu pembayaran bicoin anda telah habis.</b></p>
+                    </center>
+                @endif
+            </div>
+        @elseif($order->jenisPembayaran == 8 && $order->status == 0)
+            <hr>
+            <div class="well">
+                <center>
+                    <h3><strong>Konfirmasi Pembayaran Veritrans</strong></h3>
+                    <p>{{trans('content.step5.veritrans')}}</p><br>
+                    <button class="btn btn-warning" onclick="location.href='{{ $veritrans_payment_url }}'">{{trans('content.step5.veritrans_btn')}}</button>
+                </center>
+            </div>
         @endif
     </div>
 </div>

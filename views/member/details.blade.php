@@ -14,6 +14,11 @@
                     <li><a href="{{url('member/profile/edit')}}">Ubah Profil</a></li>
                 </ul>
             </div>
+            @if(pluginSidePowerup() != "")
+            <div class="powerup">
+                {{pluginSidePowerup()}}
+            </div>
+            @endif
         </div>
         <div id="center_column" class="col-md-9">
             @if($order->count() > 0)

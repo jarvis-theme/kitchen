@@ -39,7 +39,6 @@
             <h1>{{$data->judul}}</h1>
             <div class="row">
                 <article class="col-xs-12 col-md-12 col-lg-12">
-                    <h3>{{$data->up}}</h3>
                     {{$data->isi}}
                 </article>
             </div>

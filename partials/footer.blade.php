@@ -157,24 +157,24 @@
                     <div class="container">
                         @if(list_banks()->count() > 0)
                             @foreach(list_banks() as $value)
-                            <img src="{{bank_logo($value)}}" class="img-responsive logobank" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                            <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
                             @endforeach
                         @endif
                         @if(count(list_payments()) > 0)
                             @foreach(list_payments() as $pay)
                                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                                <img src="{{url('img/bank/ipaymu.jpg')}}" class="img-responsive logobank" alt="ipaymu" title="Ipaymu" />
+                                <img src="{{url('img/bank/ipaymu.jpg')}}" class="img-responsive" alt="ipaymu" title="Ipaymu" />
                                 @endif
                                 @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                                <img src="{{url('img/bitcoin.png')}}" class="img-responsive logobank" alt="bitcoin" title="Bitcoin" />
+                                <img src="{{url('img/bitcoin.png')}}" class="img-responsive" alt="bitcoin" title="Bitcoin" />
                                 @endif
                                 @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                                <img src="{{url('img/bank/paypal.png')}}" class="img-responsive logobank" alt="paypal" title="Paypal" />
+                                <img src="{{url('img/bank/paypal.png')}}" class="img-responsive" alt="paypal" title="Paypal" />
                                 @endif
                             @endforeach
                         @endif
                         @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                        <img src="{{url('img/bank/doku.jpg')}}" class="img-responsive logobank" alt="DOKU MyShortCart" title="DOKU MyShortCart" />
+                        <img src="{{url('img/bank/doku.jpg')}}" class="img-responsive" alt="DOKU MyShortCart" title="DOKU MyShortCart" />
                         @endif
                     </div>
                 </div>
@@ -184,4 +184,4 @@
                     </div>
                 </div>
             </footer>
-            {{pluginPowerup()}}
+            {{ pluginPowerup() }}

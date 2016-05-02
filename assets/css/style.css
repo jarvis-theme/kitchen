@@ -1116,3 +1116,5 @@ small{ font-size: 80% }
 #top-head .auth-block ul li a:hover{ color: #000 }
 button.btn-success:active, button.btn-default:active,
 button.btn-info:active, button.btn-warning:active{ margin: 0 }
+
+.payments img { display: inline-block; }
