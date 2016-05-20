@@ -155,11 +155,11 @@
                 </div>
                 <div class="payments">
                     <div class="container">
-                        @if(list_banks()->count() > 0)
-                            @foreach(list_banks() as $value)
+                        @foreach(list_banks() as $value)
+                            @if($value->status == 1)
                             <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
-                            @endforeach
-                        @endif
+                            @endif
+                        @endforeach
                         @if(count(list_payments()) > 0)
                             @foreach(list_payments() as $pay)
                                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
