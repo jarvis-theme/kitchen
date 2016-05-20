@@ -1,7 +1,7 @@
 Kitchen
 ------------
 
-![kitchen](http://jarvis-store.com/themes/master-tema/kitchen/kitchen-preview.jpg)
+![kitchen](https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/img/themes/kitchen/kitchen-preview.jpg)
 
 Kitchen adalah template toko online yang berdesain simple dan dilengkapi slider promo pada halaman utama, serta side banner dan fitur subscribe untuk mempromosikan produk anda.
 

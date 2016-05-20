@@ -20,12 +20,12 @@
                 </div>
             </section>
             <footer>
-            	<div class="top-footer">
-                	<div class="container">
-                    	<div class="row">
+                <div class="top-footer">
+                    <div class="container">
+                        <div class="row">
                             <div id="about-foot" class="col-xs-12 col-sm-3 col-lg-4">
-                            	<h4 class="title">Tentang Kami</h4>
-                            	<div class="block-content">
+                                <h4 class="title">Tentang Kami</h4>
+                                <div class="block-content">
                                     <p>{{short_description(about_us()->isi,400)}}</p>
                                 </div>
                             </div>
@@ -75,8 +75,8 @@
                             @endforeach  
 
                             <div id="contact-foot" class="col-xs-12 col-sm-3 col-lg-3">
-                            	<h4 class="title">Hubungi Kami</h4>
-                            	<div class="block-content">
+                                <h4 class="title">Hubungi Kami</h4>
+                                <div class="block-content">
                                     <p><strong>{{ucwords($kontak->nama)}}</strong></p>
                                     <p>{{$kontak->alamat}}</p><br>
                                     <p>
@@ -98,7 +98,7 @@
                                     </p>
                                     <br>
                                     <div class="social">
-                                    	<h4>Ikuti Kami</h4>
+                                        <h4>Ikuti Kami</h4>
                                         @if(!empty($kontak->fb))
                                         <div class="social-btn">
                                             <a class="first-link" href="{{url($kontak->fb)}}" target="_blank">
@@ -176,12 +176,15 @@
                         @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
                         <img src="{{url('img/bank/doku.jpg')}}" class="img-responsive" alt="DOKU MyShortCart" title="DOKU MyShortCart" />
                         @endif
+                        @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+                        <img src="{{url('img/bank/veritrans.png')}}" class="img-responsive" alt="Veritrans" title="Veritrans">
+                        @endif
                     </div>
                 </div>
                 <div class="copyright">
-                	<div class="container">
-                    	<p>&copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a href="http://jarvis-store.com" target="_blank">Jarvis Store</a></p>
+                    <div class="container">
+                        <p>&copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a href="http://jarvis-store.com" target="_blank">Jarvis Store</a></p>
                     </div>
                 </div>
             </footer>
-            {{ pluginPowerup() }}
+            {{ pluginPowerup() }} 

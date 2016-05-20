@@ -202,7 +202,7 @@
                 </div>
                 @endif
 
-                {{ pluginComment(product_url($produk), $produk) }}
+                {{ pluginComment(product_url($produk), @$produk) }}
             </div>
         </div>
     </div>

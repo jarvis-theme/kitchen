@@ -989,7 +989,8 @@ td.desc ul { list-style-type: circle; list-style-position: inside; }
 .logobank{display: inline-block;}.payments{text-align: center;padding: 20px}.logos{max-height:140px; max-width:100%}
 .logotext{color: #578400}.underline{text-decoration: underline}.imgbest{height:81px; margin: 0 auto}
 .newarticle{margin-bottom:10px}.titletesti{margin-bottom: 20px;}
-.articletitle{margin-bottom: 3px}.articletag{margin-bottom: 15px}#blogtag{margin-bottom: 25px}.detailorder{margin-left: 8px}.sidekategori{padding: 0 0 20px;}.transparent{background-color:transparent}#maplocation{height:300px}
+.articletitle{margin-bottom: 3px}.articletag{margin-bottom: 15px}#blogtag{margin-bottom: 25px}
+.detailorder{margin-left: 8px; list-style: inside;}.sidekategori{padding: 0 0 20px;}.transparent{background-color:transparent}#maplocation{height:300px}
 .detailmaps{float:right;width:100%}.center{text-align: center}#emptystok{color: #d9534f}
 #listproduk{max-height:263px; margin: 0 auto;}
 
@@ -1116,5 +1117,21 @@ small{ font-size: 80% }
 #top-head .auth-block ul li a:hover{ color: #000 }
 button.btn-success:active, button.btn-default:active,
 button.btn-info:active, button.btn-warning:active{ margin: 0 }
-
 .payments img { display: inline-block; }
+center#paypal button[type="submit"] {
+    background: #019CDE;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+center#paypal button[type="submit"]:hover { opacity: 0.6; cursor: pointer; }
+form[name="order"] > input[name="SAVE"] {
+	background: #B5062D; border: medium none; padding: 10px; border-radius: 5px; color: #fff;
+}
+form[name="order"] > input[name="SAVE"]:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+.btn-veritrans { background: #00aee7; border: none; padding: 10px; color: #fff; border-radius: 5px }
+.btn-veritrans:hover { cursor: pointer; opacity: 0.7 }
